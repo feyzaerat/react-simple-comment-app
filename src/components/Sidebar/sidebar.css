@@ -1,0 +1,45 @@
+.sidebar {
+  padding: 0.5rem;
+  height: 100vh;
+  background: var(--retro-white-color);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.sidebar .logoContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.sidebar .logoContainer img {
+  width: 80px;
+}
+.sidebar .profileContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar .profileContainer svg {
+  padding: 0.5rem;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--retro-bg-color);
+}
+.sidebar .routerContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  padding: 1rem 1rem 1rem 0.5rem;
+}
+.sidebar .routerContainer .sidebarLink {
+  background: #fefefe;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.sidebar .routerContainer .sidebarLink:hover {
+  transition: all 1s ease-in-out;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}/*# sourceMappingURL=sidebar.css.map */

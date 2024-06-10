@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.layout {
+  display: flex;
+}
+
+.sidebar-container {
+  flex: 1;
+}
+
+.content-container {
+  flex: 5; /* İçerik için 5 birim alan */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}/*# sourceMappingURL=layout.css.map */

@@ -1,0 +1,35 @@
+.pagination {
+    margin-top: 1rem;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .5rem!important;
+    justify-content: center;
+    gap: 0.25rem;
+    span{
+        border:none;
+        .page-link {
+            position: relative;
+            display: block;
+            padding: .5rem 1.75rem;
+            margin-left:0;
+            line-height: 1.25;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--retro-text-color);
+            background-color: #fff;
+            border: none;
+            outline: none;
+            &:focus,
+            &:active { 
+                border: none !important;
+                outline: none !important;
+                box-shadow: none !important;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                color: var(--retro-white-color);
+                background-color:var(--retro-secondary-color);
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+.Home {
+  margin-top: 6rem;
+}
+.Home .card {
+  margin: 1rem 0.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  text-align: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.Home .titleRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0 0.75rem;
+}
+.Home .titleRow .col-3 {
+  text-align: right;
+}
+.Home .btnContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+}
+.Home .btnContainer svg {
+  width: 16px;
+  color: var(--retro-white-color);
+}
+.Home .btnContainer a {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+.Home .btnContainer a:nth-child(1) {
+  background: var(--retro-info-color);
+}
+.Home .btnContainer a:nth-child(2) {
+  background: var(--retro-warning-color);
+}
+.Home .btnContainer a:nth-child(3) {
+  background: var(--retro-danger-color);
+}/*# sourceMappingURL=home.css.map */

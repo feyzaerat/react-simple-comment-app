@@ -1,0 +1,343 @@
+.langDropDownA {
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1rem;
+    color: var(--textColor);
+    font-weight: 500;
+    column-gap: 0.25rem;
+  }
+}
+
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  /*box-shadow: 0 2px 5px rgb(119 113 113);*/
+  z-index: 1000;
+ 
+  .signUp {
+   
+    svg {
+      
+      color: var(--retro-secondary-color);
+      &:hover {
+        color: var(--retro-secondary-color);
+      }
+    }
+    display: flex;
+    align-items: center;
+    .languageDropdown {
+      color: var(--retro-secondary-color);
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+      gap: 2px;
+      width: 60px;
+      border-radius: 0.15rem;
+      padding: 0.5rem 3rem;
+      &:hover {
+        background: var(--secondaryColor);
+        color: var(--primary-color-light);
+        transition: 0.3s ease;
+       
+      }
+      svg {
+        width: 24px;
+        height: auto;
+       
+      }
+      .dropdown-menu {
+        width: 50px !important;
+        /*transform: translate(88px, -5px) !important;*/
+        padding: 0 0;
+        /*margin: 4.25rem -5.5rem;*/
+        width: 10px;
+        a {
+          background-color: var(--primary-color-light);
+          color: var(--text-color-dark);
+          &:hover {
+            background-color: var(--pureWhiteColor);
+            
+          }
+        }
+      }
+    }
+  }
+}
+
+.logoDiv {
+  svg{
+    color: var(--retro-white-color)!important;
+  }
+  .logo {
+    width: 25px;
+  }
+}
+.dropdown-menu {
+  background: var(--greyColor);
+  border: none;
+  padding: 1rem 2rem;
+  margin: 3rem -1.5rem;
+  width: 190px;
+
+  .text {
+    margin: 0.5rem 0.25rem;
+    width: 190px;
+    .icon {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .navbar {
+    position: absolute;
+    background: var(--secondaryColor);
+    width: 80%;
+    top: -100rem;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 10px;
+    text-align: center;
+    padding: 2rem;
+    transition: 0.3s ease;
+    z-index: 2000;
+  }
+  .closeIcon {
+    position: absolute;
+    bottom: -15px;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    background: var(--secondaryColor);
+   
+    padding: 3px;
+    border-radius: 50%;
+    font-size: 35px;
+    &:hover {
+      color: red;
+    }
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .listItem {
+      padding: 0.5rem 2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      a {
+       // font-size: 15px;
+        color: var(--greyColor);
+        text-align: center;
+        &:hover {
+         
+        }
+      }
+      &:hover {
+        background: var(--primaryColor);
+       
+        transition: 0.3s ease;
+      }
+    }
+  }
+}
+.signUp {
+  gap: 0.5rem;
+  .textAction {
+    background: transparent;
+    
+    cursor: pointer;
+    //font-size: 14px;
+    width: 120px;
+    text-align: left;
+    &:hover {
+      background: var(--secondaryColor);
+      
+    }
+    svg {
+      width: 24px;
+      height: auto;
+    }
+  }
+  .text {
+    padding: 3px 10px;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    //font-size: 14px;
+    text-align: left;
+    &:hover {
+      background: var(--secondaryColor);
+      color: var(--blackColor);
+    }
+  }
+  .dropdown {
+    width: 60px;
+    padding: 6px 4px;
+    text-align: center;
+  }
+
+  .text-login {
+    padding: 3px 10px;
+    background: red;
+    border-radius: 3px;
+   
+    cursor: pointer;
+     //font-size: 14px;
+    &:hover {
+      color: var(--secondaryColor);
+    }
+  }
+  .toggleNavbarIcon {
+    background: none;
+    
+    font-weight: 600;
+    //font-size: 25px;
+  }
+}
+.showNavbar {
+  top: 0;
+  transition: 0.5s ease;
+  width: 250px;
+}
+.addBg {
+  justify-content: space-around;
+  background: var(--retro-highlight-color);
+
+  opacity: 100%;
+}
+
+@media screen and (max-width: 510px) {
+  .header {
+    .logoDiv {
+      img {
+        width: 80px;
+      }
+    }
+  }
+}
+@media screen and (min-width: 520px) {
+  .header {
+    .logoDiv {
+      img {
+        width: 75px;
+      }
+    }
+    .signUp {
+      .languageBtnContainer {
+        padding: 0;
+      }
+      .text {
+        padding: 6px;
+        //font-size: 16px;
+       
+        &:hover {
+          color: var(--pureWhiteColor);
+        }
+      }
+
+      .toggleNavbarIcon {
+        font-size: 30px;
+      }
+    }
+  }
+  .addBg {
+    justify-content: space-between;
+    width: 83.25%;
+  }
+}
+@media screen and (min-width: 770px) {
+  .header {
+    .navbar {
+      .languageBtnContainer {
+        padding: 0.25rem;
+      }
+      .closeIcon {
+        display: none;
+      }
+      .menu {
+        display: flex;
+        flex-direction: row;
+        .listItem {
+          padding: 0.3rem 1rem;
+          border-radius: 3px;
+          a {
+           
+            //font-size: 15px;
+          }
+          &:hover {
+            background: var(--primaryColor);
+            
+            transition: 0.3s ease;
+          }
+          &:hover a {
+           
+          }
+        }
+      }
+    }
+
+    .signUp {
+      .text {
+        padding: 6px 10px;
+      }
+      .toggleNavbarIcon {
+        display: none;
+      }
+    }
+  }
+  .navbarProfileImg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (min-width: 1064px) {
+  .header {
+    padding: 1rem 7rem;
+    .logoDiv {
+      img {
+        width: 86px;
+      }
+    }
+    .navbar {
+      .menu {
+        .listItem {
+          a {
+            //font-size: 20px;
+          }
+        }
+      }
+    }
+    .signUp {
+      .text {
+        //font-size: 18px;
+      }
+    }
+  }
+  .addBg {
+    padding: 0.5rem 1rem;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .header {
+    .navbar {
+      .menu {
+        .listItem {
+          margin: 0 1.8rem;
+          a {
+           // font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
