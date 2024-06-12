@@ -88,4 +88,22 @@ button:hover,
 .btn-retro-danger {
   background: var(--retro-danger-color);
   color: var(--retro-light-color);
+}
+
+.btn-retro-dark {
+  background: var(--retro-black-color);
+  color: var(--retro-white-color) !important;
+}
+
+.drop-down-dark .dropdown-menu {
+  transform: translate(-10px, 15px) !important;
+  background: var(--retro-secondary-color);
+  color: var(--retro-white-color) !important;
+}
+.drop-down-dark .dropdown-menu .drop-down-dark-link {
+  color: var(--retro-white-color) !important;
+}
+.drop-down-dark .dropdown-menu .drop-down-dark-link:hover {
+  transition: 0.2s ease-in-out !important;
+  color: var(--retro-black-color) !important;
 }/*# sourceMappingURL=buttons.css.map */

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../services/API";
 
@@ -8,26 +7,32 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  
 
   const handleLogin = async () => {
     try {
       const response = await login(username, password);
-      console.log("Login response:", response);
-      localStorage.setItem("user", JSON.stringify(response));
+      console.log("token response:", response);
+      localStorage.setItem('token', response);
+
       navigate("/");
     } catch (error) {
       console.error("Login error:", error);
+      
       setErrorMessage("Wrong password or username");
     }
   };
-
   return (
     <div className="container mt-5 pt-5 ">
       <div className="card p-5 border-0 ">
-        <div className="titleContainer text-center">
-        <h4>Giriş Yap</h4>
+        <div className="row">
+          <div className="col-12">
+            <div className="titleContainer text-center">
+              <h4>LOGIN</h4>
+            </div>
+          </div>
         </div>
-        
+
         <div>
           <label className="form-label mt-3">Username :</label>
           <input
@@ -49,9 +54,11 @@ const Login: React.FC = () => {
           />
         </div>
         {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
-       <div className="btnContainer mt-2">
-       <button className="btn btn-retro-primary" onClick={handleLogin}>Giriş Yap</button>
-       </div>
+        <div className="btnContainer mt-2">
+          <button type="submit" className="btn btn-retro-primary" onClick={handleLogin}>
+            Giriş Yap
+          </button>
+        </div>
       </div>
     </div>
   );

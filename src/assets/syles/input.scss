@@ -1,0 +1,17 @@
+*:focus {
+    outline: none!important;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+}
+input[type="text"], input[type="password"],textarea{
+border:none!important;
+background: var(--retro-light-color)!important;
+&:focus,
+&:active{ 
+    border: 0!important;
+    outline: 0!important;
+    outline-width: 0!important;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+}
+}

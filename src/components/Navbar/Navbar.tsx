@@ -32,8 +32,7 @@ const NewNavbar = () => {
 
   const handleLogout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem("user");
-   
+    localStorage.removeItem('token');
     navigate('/sign-in');
 
   };
@@ -46,19 +45,11 @@ const NewNavbar = () => {
           <ul className="menu">
             <li onClick={removeNavbar} className="listItem">
               <Link to="/" className="link">
-                Time Tunnel
+                All Tasks
               </Link>
             </li>
-            <li onClick={removeNavbar} className="listItem">
-              <Link to="/our-team" className="link">
-                About Us
-              </Link>
-            </li>
-            <li onClick={removeNavbar} className="listItem">
-              <Link to="/contact" className="link">
-                Contact
-              </Link>
-            </li>
+         
+            
           </ul>
 
           <IoIosCloseCircle className="icon closeIcon" onClick={removeNavbar} />
@@ -68,25 +59,25 @@ const NewNavbar = () => {
           {isAuthenticated ? (
             <>
               <NavDropdown
-                className="textAction text"
+                className="drop-down-dark text"
                 title={<FaUserCircle />}
                 id="basic-nav-dropdown"
               >
                 <Link
-                  className="text textAction btn"
+                  className="text btn drop-down-dark-link"
                   to="/profile/account-settings"
                 >
-                  Account Settings
+                  Settings
                 </Link>
                 <Link
-                  className="text textAction btn"
+                  className="text btn drop-down-dark-link"
                   to="/profile/your-reservations"
                 >
-                  Your Reservations
+                  Profile
                 </Link>
-                <button className="text textAction btn" onClick={handleLogout}>
-                  <IoIosLogOut /> Sign Out
-                </button>
+                <Link to="#" className="text btn drop-down-dark-link" onClick={handleLogout}>
+                   Sign Out
+                </Link>
               </NavDropdown>
             </>
           ) : (

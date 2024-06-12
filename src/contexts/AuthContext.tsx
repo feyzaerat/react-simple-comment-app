@@ -1,56 +1,69 @@
-// AuthContext.tsx
-import React, { useState, useEffect, createContext, ReactNode, useContext } from 'react';
-import { UserAuthModel } from '../models/auth/UserAuth';
+import React, { createContext, useState, useContext, useEffect } from 'react';
+import { login } from '../services/API';
+import { useNavigate } from 'react-router-dom';
 
-interface AuthContextProps {
-  authInformation: UserAuthModel;
-  hasPermission: () => boolean; // hasPermission fonksiyonunun role parametresine artık ihtiyacı yok
-  refreshUser: () => void;
+interface AuthContextData {
+  isAuth: boolean;
+  user: string | null;
+  login: (username: string, password: string) => Promise<void>;
+  logout: () => void;
+}
+interface AuthProviderProps {
+  children: React.ReactNode;
 }
 
-const AuthContext = createContext<AuthContextProps | undefined>(undefined);
+const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
-type AuthProviderProps = {
-  children: ReactNode;
-};
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const getInitialUser = (): UserAuthModel => {
-    // Token kontrolü yapılmayacak, varsayılan kullanıcı bilgileri döndürülecek
-    return {
-      id: 0,
-      username: '',
-      password: '',
-    };
-  };
-  const [authInformation, setAuthInformation] = useState<UserAuthModel>(getInitialUser());
-
-  const hasPermission = (): boolean => {
-    return authInformation.id !== 0; // Kullanıcı giriş yapmışsa true, yapmamışsa false döndür
-  };
-
-  const refreshUser = (): void => {
-    const user = getInitialUser();
-    setAuthInformation(user);
-  };
-
+  const [user, setUser] = useState<string | null>(null);
+  const navigate = useNavigate();
   useEffect(() => {
-    refreshUser();
+    const handleStorageChange = () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        setUser(token);
+      } else {
+        setUser(null);
+      }
+    };
+  
+    window.addEventListener('storage', handleStorageChange);
+  
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, []);
 
-  const contextValue: AuthContextProps = {
-    authInformation,
-    hasPermission,
-    refreshUser,
+  const isAuth = !!user;
+
+  const loginFn = async (username: string, password: string) => {
+    const response = await login(username, password);
+    if (response && response.token) {
+      localStorage.setItem('token', response.token);
+      setUser(response.token);
+    }
   };
 
-  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
+  const logout = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+    navigate('/sign-in');
+  };
+
+  return (
+    <AuthContext.Provider value={{isAuth, user, login: loginFn, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
-export const useAuth = (): AuthContextProps => {
+export function useAuth(): AuthContextData {
   const context = useContext(AuthContext);
+
   if (!context) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
+
   return context;
-};
+}
